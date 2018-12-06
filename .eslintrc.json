@@ -1,0 +1,52 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "semi": "off",
+    "react/prop-types": "warn",
+    "prefer-template": "warn",
+    "quote-props": [
+      "error",
+      "consistent"
+    ],
+    "prefer-destructuring": [
+      "error",
+      {
+        "AssignmentExpression": {
+          "array": false
+        }
+      }
+    ],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__",
+          "__endFromLogger",
+          "_headers"
+        ]
+      }
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "consistent": true
+      }
+    ],
+    "camelcase": "warn",
+    "template-curly-spacing": "off",
+    "indent": 2,
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "exceptions": [
+          "/"
+        ]
+      }
+    ]
+  }
+}
