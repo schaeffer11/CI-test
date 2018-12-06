@@ -8,6 +8,11 @@ router.get('/test', (req, res) => {
   res.json({ testing: true })
 })
 
+router.get('/ping', (req, res) => {
+  console.log('i got here', isProduction)
+  res.json({ res: 'pong' })
+})
+
 
 router.get('*', (req, res) => {
   res.status(404).send(`No API endpoint found for "${req.url}"`)

@@ -1,11 +1,11 @@
 import express from 'express'
-
+import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import compression from 'compression'
 import cors from 'cors'
 import helmet from 'helmet'
-
 import config from '../app-config'
+// import logger from './logger'
 import pkg from '../package.json'
 import api from './api/api'
 
@@ -34,6 +34,12 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
   extended: true,
 }))
 
+// ENABLE OUTPUT LOGGING
+app.use(morgan('dev'))
+
+// ENABLE LOGGING AND CACHE CONTROL
+// app.use(logger)
+
 app.use('/api', api)
 
 app.get('/version', (req, res) => {
@@ -42,7 +48,8 @@ app.get('/version', (req, res) => {
   res.json({ name, title, description, version, deployed: new Date() })
 })
 
-export const httpServer = app.listen(PORT, () => {
 
+export const httpServer = app.listen(PORT, () => {
+    setTimeout(function() {app.emit('app_started') }, 300)
 })
 
