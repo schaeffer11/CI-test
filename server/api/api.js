@@ -10,7 +10,7 @@ router.get('/test', (req, res) => {
 
 router.get('/ping', (req, res) => {
   console.log('i got here', isProduction)
-  res.json({ res: 'pong' })
+  res.json({ res: 'pono' })
 })
 
 
