@@ -96,7 +96,7 @@ router.get('/test', (req, res) => {
 
 router.get('/ping', (req, res) => {
   console.log('i got here', isProduction$1);
-  res.json({ res: 'pono' });
+  res.json({ res: 'pong' });
 });
 
 
