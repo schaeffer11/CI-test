@@ -25,7 +25,11 @@ var name = "test";
 var version = "0.0.1";
 var description = "test";
 var main = "dist/index.js";
+var eslintIgnore = [
+	"dist/index.js"
+];
 var scripts = {
+	pretest: "eslint --ignore-path .eslintignore .",
 	test: "mocha --require babel-core/register",
 	start: "node dist/index.js",
 	"start:server": "babel-node ./server/index.js",
@@ -79,6 +83,7 @@ var pkg = {
 	version: version,
 	description: description,
 	main: main,
+	eslintIgnore: eslintIgnore,
 	scripts: scripts,
 	repository: repository,
 	author: author,
@@ -90,12 +95,12 @@ var pkg = {
 const router = express.Router();
 
 router.get('/test', (req, res) => {
-  console.log('i got here', isProduction$1);
+  console.log('i got here', isProduction);
   res.json({ testing: true });
 });
 
 router.get('/ping', (req, res) => {
-  console.log('i got here', isProduction$1);
+  console.log('i got here', isProduction);
   res.json({ res: 'pong' });
 });
 
@@ -106,6 +111,7 @@ router.get('*', (req, res) => {
 
 // CONFIG & ENVIRONMENT
 const env = "production";
+// const isProduction = env === 'production'
 const PORT = process.env.PORT || config.ports.http;
 
 // INITIALIZE APP SERVER
@@ -143,11 +149,11 @@ app.get('/version', (req, res) => {
 
 
 const httpServer = app.listen(PORT, () => {
-    setTimeout(function() {app.emit('app_started'); }, 300);
+  setTimeout(() => { app.emit('app_started'); }, 300);
 });
 
-var isProduction$1 = null;
+var isProduction = null;
 
 exports.app = app;
 exports.httpServer = httpServer;
-exports.default = isProduction$1;
+exports.default = isProduction;

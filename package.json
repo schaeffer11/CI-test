@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "test",
   "main": "dist/index.js",
+  "eslintIgnore": ["dist/index.js"],
   "scripts": {
+    "pretest": "eslint --ignore-path .eslintignore .",
     "test": "mocha --require babel-core/register",
     "start": "node dist/index.js",
     "start:server": "babel-node ./server/index.js",
