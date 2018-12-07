@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "mocha --require babel-core/register",
+    "start": "babel-node ./server/index.js",
     "start:server": "babel-node ./server/index.js",
     "watch:server": "nodemon ./server/index.js --exec babel-node",
     "build:server": "rollup -c rollup.server.js"
