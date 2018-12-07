@@ -53,3 +53,4 @@ export const httpServer = app.listen(PORT, () => {
     setTimeout(function() {app.emit('app_started') }, 300)
 })
 
+export default null
