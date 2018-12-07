@@ -12,7 +12,7 @@ import api from './api/api'
 
 // CONFIG & ENVIRONMENT
 const env = process.env.NODE_ENV || 'dev'
-const isProduction = env === 'production'
+// const isProduction = env === 'production'
 const PORT = process.env.PORT || config.ports.http
 
 // INITIALIZE APP SERVER
@@ -50,7 +50,7 @@ app.get('/version', (req, res) => {
 
 
 export const httpServer = app.listen(PORT, () => {
-    setTimeout(function() {app.emit('app_started') }, 300)
+  setTimeout(() => { app.emit('app_started') }, 300)
 })
 
 export default null

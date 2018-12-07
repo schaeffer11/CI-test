@@ -1,15 +1,17 @@
-import assert from 'assert';
+// import assert from 'assert';
 import request from 'supertest';
+
 import { httpServer, app } from '../server/index';
+
 const agent = request.agent(app);
 
 app.on('app_started', () => {
-	console.log('started')
+  console.log('started')
 })
 
 
 before(function (done) {
-	console.log('hi')
+  console.log('hi')
   app.on("app_started", function() { done(); })
 })
 
@@ -25,4 +27,3 @@ describe('server testing', () => {
     agent.get('/api/ping').expect({res: 'pong'}, done);
   })
 });
-
